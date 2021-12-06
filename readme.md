@@ -36,7 +36,6 @@ fakeK8Client.PrependReactor(
 ```
 
 - Replace your reactors as below with FakeReactingCtrlRuntimeClient
-
 ```
 mp := make(map[string]ctrlfake.FakeRunTimeMock)
 // CRUD methods create/read/update/delete in lower case, kind refers resource object kind of your operator.
@@ -54,7 +53,6 @@ fakeV1alpha1Client := &ctrlfake.FakeReactingCtrlRuntimeClient{
 :do_not_litter: As this is a mock function, it comes up with more power and responsibility.
 
 - Refer kubernetes [NewClientBuilder](https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client/fake#NewClientBuilder) for more info on usage , here is the gist.
-
 ```
 initObjects := []runtime.Object{
 	// load all the objects, that is required during runtime while testing
