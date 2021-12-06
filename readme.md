@@ -24,7 +24,18 @@ Based on researches digging deep into the kubernetes libraries and some searches
 go get github.com/DreamAmbitious/k8s-controller-runtime-fake
 ```
 
-- Replace your reactors as below
+- Old client with reactors, would look like below
+```
+fakeK8Client.PrependReactor(
+		"get",
+		"objectKind",
+		func(action k8stesting.Action) (bool, runtime.Object, error) {
+			return true, nil, errs.New("k8s error")
+		}
+)
+```
+
+- Replace your reactors as below with FakeReactingCtrlRuntimeClient
 
 ```
 mp := make(map[string]ctrlfake.FakeRunTimeMock)
@@ -40,7 +51,7 @@ fakeV1alpha1Client := &ctrlfake.FakeReactingCtrlRuntimeClient{
 }
 ```
 
-:do_not_litter: As this a mock function, it comes up with more power and responsibility.
+:do_not_litter: As this is a mock function, it comes up with more power and responsibility.
 
 - Refer kubernetes [NewClientBuilder](https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client/fake#NewClientBuilder) for more info on usage , here is the gist.
 
