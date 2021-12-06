@@ -18,7 +18,7 @@ type FakeReactingCtrlRuntimeClient struct {
 // FakeRunTimeMock replacement for reactors
 // TestNameObject follows the method_Kind convention
 type FakeRunTimeMock struct {
-	TestNameObject string
+	TestNameObject rune
 	MockFunc       func() (client.Object, error)
 }
 
