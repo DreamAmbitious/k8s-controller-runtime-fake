@@ -39,7 +39,7 @@ fakeK8Client.PrependReactor(
 
 ```
 mp := make(map[string]ctrlfake.FakeRunTimeMock)
-<!-- CRUD methods create/read/update/delete in lower case, kind refers resource object kind of your operator. -->
+// CRUD methods create/read/update/delete in lower case, kind refers resource object kind of your operator.
 mp["method_kind"] = ctrlfake.FakeRunTimeMock{
 	MockFunc: func() (client.Object, error) {
 		return nil, errs.New("fake output that you're returning")
